@@ -3,25 +3,35 @@ import random
 #list of words the player can get
 words = ["pen", "iron", "book", "cat", "snake", "objective", "human", "monkey", "car", "mouse", "microphone", "hashtag", "keyboard", "disc", "skateboard", "algorithm",
          "eye", "ball", "programing", "curtains", "window", "teacher", "beer", "alcohol", "ship", "camp", "shop", "violin", "scooter", "swing", "towel", "mirror", "duvet",
-         "computer", "sport", "desk", "money", "virtual", "faith", "cactus", "chocolate", "sweet", "comics", "radiator", "loan", "leak", "screen"]
+         "computer", "sport", "desk", "money", "virtual", "faith", "cactus", "chocolate", "sweet", "comics", "radiator", "loan", "leak", "screen", "screenshot", "history book",
+         "textbook", "power", "access", "index", "human race", "race car", "membership", "neighbor", "origin", "problem", "augmented reality", "long-range", "umbrella",
+         "wellness"]
 def game():
-    """this handles the whole "guess the word" part
+    """this handles the whole "guess the word" thing
     I will split it into 2 parts.
     1. pick and create the word to be guessed
     2. the part where the player is guessing the word"""
     global words
     #1.part - creates the word to guess#
-    letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]     #these are the letters that the player can pick top guess the word
+    #these are the letters that the player can pick top guess the word
+    letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     used_letters = []
     word = [n for n in str(words[random.randrange(0, len(words) - 1)])]         #randomly choose a word from words and keep it in list char by char exp.:["p", "e", "n"]
     word_guess = []
+    correct = 0
 
-    for letter in word:                                                         #print the "_" so the player can see how many letters there are
-        word_guess.append("_")
+    for letter in word:                                                         #create the list for the word_guess
+        if letter == "-":
+            word_guess.append("-")
+            correct += 1
+        elif letter == " ":
+            word_guess.append(" ")
+            correct += 1
+        else:
+            word_guess.append("_")
     
     #2.part - actually the guesses#
     lives = 8
-    correct = 0
     lost = False
     while correct != len(word):                                                 #while the word isnt complete
         print(52 * "=")
@@ -29,6 +39,7 @@ def game():
         if lives == 0:                                                          #no lives left -> it ends the game and reveal the word
             print("You lost. The word was: ")
             print(" ".join(map(str, word)))
+            print(52 * "=")
             lost = True
             break
 
@@ -71,7 +82,7 @@ def game():
 
         elif guess_up == "STOP":                                    #stops the current game
             print("The word was: ")
-            print(" ".join(map(str, word))) 
+            print(" ".join(map(str, word)))
             lost = True
             break
         else:                                                       #input isnt one letter or in the list of pickable letters - will reask the player while also reshowing the "game"
@@ -80,6 +91,7 @@ def game():
     if lost == False:
         print("You won! The word was: ")
         print(" ".join(map(str, word)))
+        print(52 * "=")
 
 
 def play_game():
@@ -94,6 +106,7 @@ def play_game():
         play_game()
     else:                                                               #ends the program
         print("Game over.")
+        input()
 
 #rules#
 print("Rules & informations: ")
