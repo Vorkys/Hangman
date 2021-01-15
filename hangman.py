@@ -31,16 +31,16 @@ def game():
             lost = True
             break
 
-        print("Počet životů: {}".format(lives))
-        print("Slovo: ")
+        print("Lives: {}".format(lives))
+        print("Word: ")
         print(" ".join(map(str, word_guess)))                                   #print the word in the state that the player achieved
-        print("Použitelná písmena: ")
+        print("Unused letters: ")
         print(" ".join(map(str, letters)))                                      #print the letters that can be used
-        print("Použitá písmena: ")
+        print("Used letters: ")
         print(" ".join(map(str, used_letters)))                                 #print the letters that were used
 
         
-        guess = input("Zadej písmeno: ")                            #the player can write the letter uppercase or lowercase - doesnt change anything
+        guess = input("Letter: ")                            #the player can write the letter uppercase or lowercase - doesnt change anything
         guess_up = guess.upper()
         guess_down = guess.lower()
 
@@ -82,7 +82,7 @@ def game():
 
 
 def play_game():
-    n = input("Add a word(ADD) | New game(1/ano/yes) ")
+    n = input("Add a word(ADD) | New game(1/ano/yes): ")
     start = n.upper()
     if start == "1" or start == "ANO" or start == "YES":                #asks if the player wish to play another game with another random word
         game()
