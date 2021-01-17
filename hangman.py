@@ -7,8 +7,7 @@ words = ["pen", "iron", "book", "cat", "snake", "objective", "human", "monkey", 
          "textbook", "power", "access", "index", "human race", "race car", "membership", "neighbor", "origin", "problem", "augmented reality", "long-range", "umbrella",
          "wellness"]
 def game():
-    """this handles the whole "guess the word" thing
-    I will split it into 2 parts.
+    """this handles the whole "guess the word" thing - I will split it into 2 parts.
     1. pick and create the word to be guessed
     2. the part where the player is guessing the word"""
     global words
@@ -93,8 +92,8 @@ def game():
         print(" ".join(map(str, word)))
         print(52 * "=")
 
-
 def play_game():
+    """main menu for the player"""
     n = input("Add a word(add) | New game(1/ano/yes): ")
     start = n.upper()
     if start == "1" or start == "ANO" or start == "YES":                #asks if the player wish to play a new game
