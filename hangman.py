@@ -113,6 +113,6 @@ print("1) diacritics arent counted")
 print("2) should be possible to play infinitely")
 print("3) words, which the player adds wont be keeped after restart(WIP to even remove a word)")
 print("4) you can add a word by typing add when asked to")
-print("5) you can stop to guess at anytime, just write stop")
+print("5) you can stop guessing at any moment, just write stop")
 
 play_game()
