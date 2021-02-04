@@ -49,7 +49,6 @@ def game():
         print(" ".join(map(str, letters)))                                      #print the letters that can be used
         print("Used letters: ")
         print(" ".join(map(str, used_letters)))                                 #print the letters that were used
-
         
         guess = input("Letter: ")                            #the player can write the letter uppercase or lowercase - doesnt change anything
         guess_up = guess.upper()
@@ -57,6 +56,7 @@ def game():
 
         position = 0
         bad = True
+
         if guess_up in letters and len(guess) == 1:                 #letter not in word -> -1 health
             for _letter in word:
                 if _letter == guess_down:                           #if the letter is in the world it reveals the letter and add it to the used_letters list aswel as removing it in the letter that are able to be used
@@ -87,7 +87,7 @@ def game():
         else:                                                       #input isnt one letter or in the list of pickable letters - will reask the player while also reshowing the "game"
             print("invalid input")
 
-    if lost == False:
+    if lost == False:                                               #word is guessed, play_game() is called again
         print("You won! The word was: ")
         print(" ".join(map(str, word)))
         print(52 * "=")
@@ -104,15 +104,16 @@ def play_game():
         words.append(n)
         play_game()
     else:                                                               #ends the program
-        print("Game over.")
+        print("Press 'enter' to exit...")
         input()
 
 #rules#
 print("Rules & informations: ")
-print("1) diacritics arent counted")
-print("2) should be possible to play infinitely")
-print("3) words, which the player adds wont be keeped after restart(WIP to even remove a word)")
+print("1) no diacritics")
+print("2) should be possible to play a new game 1000 time")
+print("3) words, which the player adds wont be kept after restart(WIP to even remove a word)")
 print("4) you can add a word by typing add when asked to")
-print("5) you can stop guessing at any moment, just write stop")
+print("5) you can stop guessing at any moment, just write 'stop'")
+print("6) to end the program just write anything when asked if you want a new game")
 
 play_game()
